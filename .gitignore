@@ -1,0 +1,73 @@
+# Local .terraform directories
+.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Crash logs
+crash.log
+
+# Terraform variable files containing sensitive data
+*.tfvars
+*.tfvars.json
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration
+.terraformrc
+terraform.rc
+terraform.tfvars
+.terraform.lock.hcl
+
+migration.code-workspace
+package-lock.json
+.dkr.ecr.ap-southeast-2.amazonaws.com
+modules/.DS_Store
+.DS_Store
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Helm
+charts/
+*.tgz
+release.yaml
+values.yaml
+secrets.yaml
+.env
+
+# Kubernetes
+kubeconfig
+kubeconfig.yaml
+.kube/
+*.log
+
+# General
+*.pem
+*.key
+*.crt
+*.env
+*.zip
+*.bak
+*.swp
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+dist/
+build/
+vault-dev-config
