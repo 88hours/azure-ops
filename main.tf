@@ -11,3 +11,10 @@ resource "azurerm_management_group" "prod" {
   name         = "prod-mg"
   parent_management_group_id = azurerm_management_group.root_mg.id
 }
+
+data "azurerm_subscription" "current" {}
+
+resource "azurerm_management_group_subscription_association" "link" {
+  subscription_id         = data.azurerm_subscription.current.id
+  management_group_id     = azurerm_management_group.root_mg.id
+}

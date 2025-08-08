@@ -20,7 +20,7 @@ This repository bootstraps a secure and scalable Azure environment for Terraform
 
 ```bash
 az account list --output table
-az account set --subscription "Azure subscription 1"
+az account set --subscription "Microsoft Azure Sponsorship"
 az account show --output table
 ```
 
@@ -141,14 +141,30 @@ resource "azurerm_management_group" "prod" {
   parent_management_group_id = azurerm_management_group.root_mg.id
 }
 ```
+"## 🔗 Step 8 – Link Subscription to Management Group
 
-Apply it:
+Use Terraform to associate your current subscription with a management group.
 
-```bash
-terraform apply -auto-approve
+### Add subscription data source
+
+```hcl
+data \"azurerm_subscription\" \"current\" {}
 ```
 
 ---
+
+## Link subscription to root management group
+```hcl
+resource \"azurerm_management_group_subscription_association\" \"link\" {
+  subscription_id       = data.azurerm_subscription.current.subscription_id
+  management_group_id   = azurerm_management_group.root_mg.id
+}```
+
+## To link to a child group (e.g. prod):
+
+```hcl
+management_group_id = azurerm_management_group.prod.id
+}```
 
 ## 🔍 Helpful CLI Debug/Inspect Commands
 
